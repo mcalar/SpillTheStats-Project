@@ -26,7 +26,7 @@ export default function App() {
 
       {/* Marquee Bar */}
       <div className="marquee-container app-marquee w-100 bg-dark text-white">
-        <div className="app-marquee-content font-monospace small text-uppercase tracking-wider">
+        <div className="app-marquee-content small text-uppercase tracking-wider">
           NEXT DATA • SPILL THE STATS • LEAGUE OF LEGENDS LAN • NEXT DATA • SPILL THE STATS •
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function App() {
         </div>
 
         {/* Desktop Nav Links */}
-        <div className="d-none d-sm-flex align-items-center gap-4 font-monospace small">
+        <div className="d-none d-sm-flex align-items-center gap-4 small">
           <Link to="/" className="text-decoration-none">Home</Link>
           <Link to="/" className="text-decoration-none">Análisis</Link>
           <Link to="/" className="text-decoration-none">Champions</Link>
@@ -78,7 +78,7 @@ export default function App() {
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="d-sm-none bg-surface">
-          <div className="d-flex flex-column px-4 py-3 gap-3 font-monospace small">
+          <div className="d-flex flex-column px-4 py-3 gap-3 small">
             <Link to="/" className="text-decoration-none">Home</Link>
             <Link to="/" className="text-decoration-none">Análisis</Link>
             <Link to="/" className="text-decoration-none">Champions</Link>
@@ -125,14 +125,14 @@ export default function App() {
 
                 <BionicText 
                   isActive={isBionicActive}
-                  className="text-center small text-md-base leading-relaxed font-monospace d-block app-hero-description"
+                  className="text-center small text-md-base leading-relaxed d-block app-hero-description"
                   style={{ maxWidth: "500px" }}
                   text="En nuestra página encontrarás los datos más recientes de League of Legends LAN, para buscar los mejores campeones y builds, counters, winrates y mucho más. Crea una cuenta para recomendaciones personalizadas con nuestro algoritmo personal de SpillTheStats."
                 />
 
                 <div className="mt-4">
-                  <button className="btn btn-primary rounded-pill px-5 py-3 font-monospace small text-uppercase tracking-wide">
-                    Crea una Cuenta
+                  <button className="btn btn-primary rounded-pill px-5 py-3 small tracking-wide">
+                    Crea una cuenta
                   </button>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function App() {
         <div className="container-fluid px-4 px-md-5 py-4">
           <div className="row">
             <div className="col-12 col-md-6 d-flex flex-column justify-content-between pb-3 pb-md-0 mb-3 mb-md-0 pe-md-4">
-              <div className="font-monospace small">
+              <div className="small">
                 <p className="mb-0">Made with ❤ by CocoaTeaDevs</p>
               </div>
               <div className="d-flex align-items-center gap-4 mt-3">
@@ -166,13 +166,13 @@ export default function App() {
 
             <div className="col-12 col-md-6 d-flex justify-content-md-end gap-5 pt-2 pt-md-0 ps-md-4">
               <div className="d-flex flex-column gap-2">
-                <h4 className="font-monospace small fw-bold mb-1">Ayuda</h4>
-                <a href="#" className="font-monospace small text-decoration-none hover-underline">FAQ</a>
-                <a href="#" className="font-monospace small text-decoration-none hover-underline">Contact Us</a>
+                <h4 className="small fw-bold mb-1">Ayuda</h4>
+                <a href="#" className="small text-decoration-none hover-underline">FAQ</a>
+                <a href="#" className="small text-decoration-none hover-underline">Contact Us</a>
               </div>
               <div className="d-flex flex-column gap-2">
-                <h4 className="font-monospace small fw-bold mb-1">Otros</h4>
-                <a href="#" className="font-monospace small text-decoration-none hover-underline">Política de Privacidad</a>
+                <h4 className="small fw-bold mb-1">Otros</h4>
+                <a href="#" className="small text-decoration-none hover-underline">Política de Privacidad</a>
               </div>
             </div>
           </div>
