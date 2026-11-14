@@ -32,7 +32,7 @@ export default function App() {
       </div>
 
       {/* Navigation Bar */}
-      <nav className="w-100 px-4 px-sm-5 py-3 d-flex align-items-center justify-content-between">
+      <nav className="app-nav w-100 px-4 px-sm-5 py-3 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center gap-3">
           <Link to="/" className="text-display fw-bold text-decoration-none">
             SpillTheStats
@@ -40,7 +40,7 @@ export default function App() {
         </div>
 
         {/* Desktop Nav Links */}
-        <div className="d-none d-sm-flex align-items-center gap-4 small">
+        <div className="d-none d-lg-flex align-items-center gap-4 small">
           <Link to="/" className="text-decoration-none">Home</Link>
           <Link to="/" className="text-decoration-none">Análisis</Link>
           <Link to="/" className="text-decoration-none">Champions</Link>
@@ -65,7 +65,7 @@ export default function App() {
 
         {/* Mobile Hamburger */}
         <button
-          className="d-sm-none d-flex flex-column align-items-center justify-content-center gap-1 app-menu-toggle"
+          className="d-flex d-lg-none flex-column align-items-center justify-content-center gap-1 app-menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
@@ -77,7 +77,7 @@ export default function App() {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="d-sm-none bg-surface">
+        <div className="app-nav d-lg-none">
           <div className="d-flex flex-column px-4 py-3 gap-3 small">
             <Link to="/" className="text-decoration-none">Home</Link>
             <Link to="/" className="text-decoration-none">Análisis</Link>
