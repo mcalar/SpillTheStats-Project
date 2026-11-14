@@ -16,7 +16,7 @@ export default function App() {
   };
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-white text-dark">
+    <div className="d-flex flex-column min-vh-100 bg-background">
 
       {/* Accessibility Panel */}
       <AccessibilityPanel
@@ -25,28 +25,28 @@ export default function App() {
       />
 
       {/* Marquee Bar */}
-      <div className="marquee-container app-marquee w-100 border-bottom border-dark bg-dark text-white">
+      <div className="marquee-container app-marquee w-100 bg-dark text-white">
         <div className="marquee-content font-monospace small text-uppercase tracking-wider">
           NEXT DATA • SPILL THE STATS • LEAGUE OF LEGENDS LAN • NEXT DATA • SPILL THE STATS •
         </div>
       </div>
 
       {/* Navigation Bar */}
-      <nav className="w-100 border-bottom border-dark px-4 px-sm-5 py-3 d-flex align-items-center justify-content-between">
+      <nav className="w-100 px-4 px-sm-5 py-3 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center gap-3">
-          <Link to="/" className="d-flex align-items-center justify-content-center border border-2 border-dashed border-dark app-logo-mark text-decoration-none text-dark">
-            <span className="font-monospace small">LOGO</span>
+          <Link to="/" className="text-display fw-bold text-decoration-none">
+            SpillTheStats
           </Link>
         </div>
 
         {/* Desktop Nav Links */}
         <div className="d-none d-sm-flex align-items-center gap-4 font-monospace small">
-          <Link to="/" className="text-dark text-decoration-none">Home</Link>
-          <Link to="/" className="text-dark text-decoration-none">Análisis</Link>
-          <Link to="/" className="text-dark text-decoration-none">Champions</Link>
+          <Link to="/" className="text-decoration-none">Home</Link>
+          <Link to="/" className="text-decoration-none">Análisis</Link>
+          <Link to="/" className="text-decoration-none">Champions</Link>
 
           <button
-            className="btn btn-sm btn-outline-dark d-flex align-items-center gap-2"
+            className="btn btn-sm btn-outline rounded-pill d-flex align-items-center gap-2"
             onClick={toggleAccessibility}
             aria-label="Opciones de accesibilidad"
           >
@@ -56,18 +56,16 @@ export default function App() {
 
           <Link
             to="/profile"
-            className="btn btn-sm btn-outline-dark d-flex align-items-center gap-2 border-start border-dark ps-4 rounded-0 text-decoration-none text-dark"
+            className="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-2 text-decoration-none"
           >
-            <div className="d-flex align-items-center justify-content-center border border-dashed border-dark rounded-circle app-profile-icon">
-              <span className="app-profile-glyph">👤</span>
-            </div>
+            <span aria-hidden="true">👤</span>
             <span>Perfil</span>
           </Link>
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className="d-sm-none d-flex flex-column align-items-center justify-content-center gap-1 border border-dark app-menu-toggle"
+          className="d-sm-none d-flex flex-column align-items-center justify-content-center gap-1 app-menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
@@ -79,14 +77,14 @@ export default function App() {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="d-sm-none border-bottom border-dark bg-white">
+        <div className="d-sm-none bg-surface">
           <div className="d-flex flex-column px-4 py-3 gap-3 font-monospace small">
-            <Link to="/" className="text-dark text-decoration-none border-bottom border-dashed border-secondary pb-2">Home</Link>
-            <Link to="/" className="text-dark text-decoration-none border-bottom border-dashed border-secondary pb-2">Análisis</Link>
-            <Link to="/" className="text-dark text-decoration-none border-bottom border-dashed border-secondary pb-2">Champions</Link>
+            <Link to="/" className="text-decoration-none">Home</Link>
+            <Link to="/" className="text-decoration-none">Análisis</Link>
+            <Link to="/" className="text-decoration-none">Champions</Link>
 
             <button
-              className="btn btn-outline-dark btn-sm d-flex align-items-center gap-2"
+              className="btn btn-outline btn-sm rounded-pill d-flex align-items-center gap-2"
               onClick={() => {
                 toggleAccessibility();
                 setMenuOpen(false);
@@ -95,10 +93,8 @@ export default function App() {
               <span>♿</span> Accesibilidad
             </button>
 
-            <Link to="/profile" className="btn btn-outline-dark btn-sm d-flex align-items-center gap-2 text-decoration-none text-dark">
-              <div className="d-flex align-items-center justify-content-center border border-dashed border-dark rounded-circle app-mobile-profile-icon">
-                <span className="app-profile-glyph">👤</span>
-              </div>
+            <Link to="/profile" className="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-2 text-decoration-none">
+              <span aria-hidden="true">👤</span>
               Perfil
             </Link>
           </div>
@@ -110,30 +106,32 @@ export default function App() {
         <Routes>
           <Route path="/" element={
             <div className="container-fluid p-0 d-flex flex-column flex-md-row w-100">
-              {/* Left half - Image placeholder */}
-              <div className="col-12 col-md-6 border-bottom border-md-end border-dark d-flex align-items-center justify-content-center bg-light app-hero-image-placeholder">
-                <div className="d-flex flex-column align-items-center justify-content-center gap-2 border border-2 border-dashed border-dark p-5 app-hero-image-frame">
-                  <span className="app-hero-image-icon" style={{ fontSize: "3rem" }}>🖼️</span>
-                  <span className="font-monospace small">[ HERO IMAGE ]</span>
-                  <span className="font-monospace small text-secondary">placeholder</span>
+              {/* Hero artwork */}
+              <div className="col-12 col-md-6 d-flex align-items-center justify-content-center bg-surface app-hero-artwork">
+                <div className="app-hero-chart" aria-hidden="true">
+                  <span className="app-hero-bar app-hero-bar--1"></span>
+                  <span className="app-hero-bar app-hero-bar--2"></span>
+                  <span className="app-hero-bar app-hero-bar--3"></span>
+                  <span className="app-hero-bar app-hero-bar--4"></span>
+                  <span className="app-hero-bar app-hero-bar--5"></span>
                 </div>
               </div>
 
               {/* Right half - Title + Description + Button */}
               <div className="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center px-4 px-md-5 py-5">
-                <h1 className="h2 h-md-1 fw-bold text-center border-bottom border-2 border-dark pb-3 mb-4">
+                <h1 className="h2 h-md-1 fw-bold text-center mb-4">
                   ¡Bienvenido a<br />Spill the Stats!
                 </h1>
 
                 <BionicText 
                   isActive={isBionicActive}
-                  className="text-center small text-md-base leading-relaxed font-monospace border border-dashed border-secondary p-4 p-md-5 d-block app-hero-description"
+                  className="text-center small text-md-base leading-relaxed font-monospace d-block app-hero-description"
                   style={{ maxWidth: "500px" }}
                   text="En nuestra página encontrarás los datos más recientes de League of Legends LAN, para buscar los mejores campeones y builds, counters, winrates y mucho más. Crea una cuenta para recomendaciones personalizadas con nuestro algoritmo personal de SpillTheStats."
                 />
 
                 <div className="mt-4">
-                  <button className="btn btn-outline-dark border-2 px-5 py-3 font-monospace small text-uppercase tracking-wide rounded-0">
+                  <button className="btn btn-primary rounded-pill px-5 py-3 font-monospace small text-uppercase tracking-wide">
                     Crea una Cuenta
                   </button>
                 </div>
@@ -146,22 +144,20 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="w-100 border-top border-2 border-dark mt-auto">
+      <footer className="w-100 mt-auto">
         <div className="container-fluid px-4 px-md-5 py-4">
           <div className="row">
-            <div className="col-12 col-md-6 d-flex flex-column justify-content-between border-bottom border-md-bottom-0 border-md-end border-dark pb-3 pb-md-0 mb-3 mb-md-0 pe-md-4">
+            <div className="col-12 col-md-6 d-flex flex-column justify-content-between pb-3 pb-md-0 mb-3 mb-md-0 pe-md-4">
               <div className="font-monospace small">
                 <p className="mb-0">Made with ❤ by CocoaTeaDevs</p>
               </div>
               <div className="d-flex align-items-center gap-4 mt-3">
-                <div className="d-flex align-items-center justify-content-center border border-dashed border-dark app-footer-mark">
-                  <span className="font-monospace app-footer-mark-label">LOGO</span>
-                </div>
+                <span className="text-display fw-bold">SpillTheStats</span>
                 <div className="d-flex align-items-center gap-3">
-                  <a href="#" className="d-flex align-items-center justify-content-center border border-dark app-footer-social-link" title="GitHub">
+                  <a href="#" className="d-flex align-items-center justify-content-center rounded-circle app-footer-social-link" title="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                   </a>
-                  <a href="#" className="d-flex align-items-center justify-content-center border border-dark app-footer-social-link" title="Inbox">
+                  <a href="#" className="d-flex align-items-center justify-content-center rounded-circle app-footer-social-link" title="Inbox">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
                   </a>
                 </div>
@@ -170,18 +166,17 @@ export default function App() {
 
             <div className="col-12 col-md-6 d-flex justify-content-md-end gap-5 pt-2 pt-md-0 ps-md-4">
               <div className="d-flex flex-column gap-2">
-                <h4 className="font-monospace small fw-bold border-bottom border-dark pb-1 mb-1">Ayuda</h4>
+                <h4 className="font-monospace small fw-bold mb-1">Ayuda</h4>
                 <a href="#" className="font-monospace small text-dark text-decoration-none hover-underline">FAQ</a>
                 <a href="#" className="font-monospace small text-dark text-decoration-none hover-underline">Contact Us</a>
               </div>
               <div className="d-flex flex-column gap-2">
-                <h4 className="font-monospace small fw-bold border-bottom border-dark pb-1 mb-1">Otros</h4>
+                <h4 className="font-monospace small fw-bold mb-1">Otros</h4>
                 <a href="#" className="font-monospace small text-dark text-decoration-none hover-underline">Política de Privacidad</a>
               </div>
             </div>
           </div>
         </div>
-        <div className="h-1 bg-dark"></div>
       </footer>
     </div>
   );

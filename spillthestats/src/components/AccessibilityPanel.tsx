@@ -31,11 +31,10 @@ export const AccessibilityPanel = ({ state: controlledState, onStateChange }: Ac
   };
 
   return (
-    <div className="position-fixed top-50 end-0 translate-middle-y p-3" style={{ zIndex: 99999 }}>
+    <div className="accessibility-panel-container">
       {state === 'minimized' && (
       <button
-        className="btn btn-primary rounded-circle shadow d-flex align-items-center justify-content-center p-0"
-        style={{ width: '56px', height: '56px', fontSize: '1.75rem' }}
+        className="btn btn-primary rounded-circle shadow d-flex align-items-center justify-content-center p-0 accessibility-panel-trigger"
         onClick={() => setState('open')}
         aria-label="Abrir panel"
       >
@@ -46,7 +45,7 @@ export const AccessibilityPanel = ({ state: controlledState, onStateChange }: Ac
       
 
       {state === 'open' && (
-        <div className="card shadow-lg p-3 accessibility-panel-card">
+        <div className="card shadow-lg accessibility-panel-card">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h5 className="mb-0">Accesibilidad</h5>
             <div className="d-flex gap-2">
