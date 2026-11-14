@@ -6,59 +6,51 @@ export default function ProfilePage() {
   const { isBionicActive } = useBionicText();
 
   return (
-    <div className="container py-5" style={{ maxWidth: "960px" }}>
-      <h1 className="fw-bold mb-4">My Profile</h1>
+    <div className="container py-5 profile-main">
+      <h1 className="mb-4">My Profile</h1>
 
       {/* Profile Card */}
-      <section className="card border border-dark p-4 mb-4">
+      <section className="card mb-4">
         <div className="d-flex align-items-center gap-4 flex-wrap">
-          <div
-            className="d-flex align-items-center justify-content-center border border-2 border-dashed border-dark rounded-circle flex-shrink-0"
-            style={{ width: "96px", height: "96px" }}
-            aria-label="Profile photo placeholder"
-          >
-            <span style={{ fontSize: "2rem" }}>👤</span>
+          <div className="profile-avatar flex-shrink-0" role="img" aria-label="Profile avatar">
+            <span aria-hidden="true">👤</span>
           </div>
 
           <div className="flex-grow-1">
-            <h2 className="h5 fw-bold mb-1">Your name</h2>
-            <p className="font-monospace small text-secondary mb-1">@username</p>
+            <h2 className="text-xl mb-1">Your name</h2>
+            <p className="text-mono text-sm profile-muted mb-1">@username</p>
             <BionicText
               isActive={isBionicActive}
-              className="font-monospace small text-secondary d-block"
+              className="text-mono text-sm profile-muted d-block"
               text="Add a short bio to tell the community about yourself."
             />
           </div>
 
-          <button className="btn btn-outline-dark font-monospace small text-uppercase" type="button">
+          <button className="btn btn-outline rounded-pill text-mono" type="button">
             Edit profile
           </button>
         </div>
       </section>
 
       {/* Favorite Champions Panel */}
-      <section className="card border border-dark mb-4 overflow-hidden">
-        <div className="border-bottom border-dark px-4 py-3">
-          <h3 className="h6 fw-bold mb-0 font-monospace">Favorite champions</h3>
-        </div>
-        <div className="p-4">
+      <section className="card mb-4">
+        <h3 className="text-mono text-lg mb-3">Favorite champions</h3>
+        <div>
           <BionicText
             isActive={isBionicActive}
-            className="font-monospace small text-secondary d-block"
+            className="text-mono text-sm profile-muted d-block"
             text="Your followed champions will appear here."
           />
         </div>
       </section>
 
       {/* Recent Activity Panel */}
-      <section className="card border border-dark mb-4 overflow-hidden">
-        <div className="border-bottom border-dark px-4 py-3">
-          <h3 className="h6 fw-bold mb-0 font-monospace">Recent activity</h3>
-        </div>
-        <div className="p-4">
+      <section className="card mb-4">
+        <h3 className="text-mono text-lg mb-3">Recent activity</h3>
+        <div>
           <BionicText
             isActive={isBionicActive}
-            className="font-monospace small text-secondary d-block"
+            className="text-mono text-sm profile-muted d-block"
             text="Your saved articles and recent activity will appear here."
           />
         </div>
@@ -66,7 +58,7 @@ export default function ProfilePage() {
 
       {/* Back to Home */}
       <div className="text-center mt-4">
-        <Link to="/" className="btn btn-outline-dark font-monospace small text-uppercase">
+        <Link to="/" className="btn btn-outline rounded-pill text-mono">
           ← Volver al Inicio
         </Link>
       </div>
