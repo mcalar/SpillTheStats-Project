@@ -594,6 +594,19 @@ footer a:hover {
   color: var(--color-pearly-aqua);
 }
 
+.app-footer {
+  color: var(--color-text);
+}
+
+.app-footer p {
+  font-weight: 500;
+}
+
+.app-footer a:not(.app-footer-social-link) {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
 /* ============================================
    11. RESPONSIVE ADJUSTMENTS
    ============================================ */

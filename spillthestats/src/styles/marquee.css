@@ -1,19 +1,24 @@
-/* src/styles/marquee.css */
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
 }
 
-.marquee-content {
-  display: inline-block;
-  animation: marquee 20s linear infinite;
+.app-marquee {
+  height: 2rem;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
+.app-marquee-content {
+  display: inline-block;
+  line-height: 2rem;
+  animation: app-marquee 20s linear infinite;
+}
+
+@keyframes app-marquee {
+  from {
+    transform: translateX(100vw);
   }
-  100% {
+
+  to {
     transform: translateX(-100%);
   }
 }
