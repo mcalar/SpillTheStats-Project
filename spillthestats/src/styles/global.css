@@ -260,7 +260,7 @@ a:hover {
 .btn-outline:hover {
   background-color: var(--color-dark-rich-blue);
   color: var(--color-mist);
-  border-color: var(transparent);
+  border-color: transparent;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
