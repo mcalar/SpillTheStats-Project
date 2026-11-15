@@ -211,6 +211,8 @@ a:hover {
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: var(--text-sm);
+  line-height: 1.5; /* Prevents cramped text inside headers */
+  color: inherit;   /* Handles color inheritance gracefully */
   padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
   border: var(--border-medium) solid transparent;
@@ -218,12 +220,15 @@ a:hover {
   transition: all var(--transition-fast);
   text-transform: none;
   letter-spacing: 0.5px;
+  display: inline-flex; /* Improves vertical alignment of text/icons */
+  align-items: center;
+  justify-content: center;
 }
 
-/* Primary Button: Indigo background, Mist text */
+/* Primary Button: Indigo background, Lavender text */
 .btn-primary {
   background-color: var(--color-indigo-velvet);
-  color: var(--color-mist);
+  color: var(--color-lavender);
   border-color: var(--color-indigo-velvet);
 }
 
@@ -274,6 +279,38 @@ a:hover {
   background-color: var(--color-mist);
   color: var(--color-indigo-velvet);
   border-color: var(--color-mist);
+}
+
+/* ============================================
+   6b. DARK MODE BUTTON OVERRIDES
+   ============================================ */
+
+[data-bs-theme="dark"] .btn-primary {
+  background-color: var(--color-pearly-aqua);
+  color: var(--color-dark-rich-blue);
+  border-color: var(--color-pearly-aqua);
+}
+
+[data-bs-theme="dark"] .btn-primary:hover {
+  background-color: var(--color-mist);
+  color: var(--color-dark-rich-blue);
+  border-color: var(--color-mist);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-bs-theme="dark"] .btn-secondary {
+  background-color: var(--color-lavender);
+  color: var(--color-dark-rich-blue);
+  border-color: var(--color-lavender);
+}
+
+[data-bs-theme="dark"] .btn-secondary:hover {
+  background-color: var(--color-mist);
+  color: var(--color-indigo-velvet);
+  border-color: var(--color-mist);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 /* ============================================
@@ -589,21 +626,24 @@ label {
   border-color: var(--color-dark-rich-blue);
 }
 
-/* Footer Links - Improved Contrast */
+/* Footer Links - Improved Contrast (UPDATED to exclude buttons) */
 .app-nav,
 .app-footer {
   color: var(--color-chrome-text);
   background-color: var(--color-chrome-background);
 }
 
-.app-nav a,
-footer a {
+/* Exclude .btn classes so button colors aren't overridden */
+.app-nav a:not(.btn),
+.app-footer a:not(.btn),
+footer a:not(.btn) {
   color: var(--color-chrome-text);
   transition: color var(--transition-fast);
 }
 
-.app-nav a:hover,
-footer a:hover {
+.app-nav a:not(.btn):hover,
+.app-footer a:not(.btn):hover,
+footer a:not(.btn):hover {
   color: var(--color-chrome-hover);
 }
 
