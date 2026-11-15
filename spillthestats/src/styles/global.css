@@ -23,6 +23,7 @@
   --color-indigo-velvet: #522d76;
   --color-light-cyan: #D7F2F5;
   --color-slightly-lighter-dark-blue: #0a1f3d;
+  --color-baltic-blue: #336184;
 
   /* Semantic Colors - Light Mode */
   --color-primary: var(--color-dark-rich-blue);
@@ -211,8 +212,8 @@ a:hover {
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: var(--text-sm);
-  line-height: 1.5; /* Prevents cramped text inside headers */
-  color: inherit;   /* Handles color inheritance gracefully */
+  line-height: 1.5; 
+  color: inherit;   
   padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
   border: var(--border-medium) solid transparent;
@@ -220,15 +221,16 @@ a:hover {
   transition: all var(--transition-fast);
   text-transform: none;
   letter-spacing: 0.5px;
-  display: inline-flex; /* Improves vertical alignment of text/icons */
+  display: inline-flex; 
   align-items: center;
   justify-content: center;
 }
 
-/* Primary Button: Indigo background, Lavender text */
+/* Primary Button: Indigo background */
+
 .btn-primary {
   background-color: var(--color-indigo-velvet);
-  color: var(--color-lavender);
+  color: var(--color-mist);
   border-color: var(--color-indigo-velvet);
 }
 
@@ -240,26 +242,27 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
-/* Secondary Button: Lavender background, Indigo text */
+
+/* Secondary Button: Aqua background*/
 .btn-secondary {
-  background-color: var(--color-lavender);
-  color: var(--color-indigo-velvet);
-  border-color: var(--color-lavender);
+  background-color: var(--color-baltic-blue);
+  color: var(--color-mist);
+  border-color: transparent;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-indigo-velvet);
-  color: var(--color-mist);
-  border-color: var(--color-indigo-velvet);
+  background-color: var(--color-pearly-aqua);
+  color: var(--color-dark-rich-blue);
+  border-color: transparent;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
-/* Outline Button: Border and text match theme */
+/* Outline Button */
 .btn-outline {
-  background-color: var(--color-pearly-aqua);
+  background-color: transparent;
   color: var(--color-text);
-  border-color: transparent;
+  border-color: var(--color-dark-rich-blue);
 }
 
 .btn-outline:hover {
@@ -269,6 +272,10 @@ a:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
+
+/* ============================================
+   6b. DARK MODE BUTTON OVERRIDES
+   ============================================ */
 
 [data-bs-theme="dark"] .btn-outline {
   color: var(--color-mist);
@@ -281,9 +288,6 @@ a:hover {
   border-color: var(--color-mist);
 }
 
-/* ============================================
-   6b. DARK MODE BUTTON OVERRIDES
-   ============================================ */
 
 [data-bs-theme="dark"] .btn-primary {
   background-color: var(--color-pearly-aqua);
@@ -593,7 +597,7 @@ label {
   color: var(--color-text-muted);
 }
 
-/* Footer Social Links - Improved Contrast */
+/* Footer Social Links*/
 .app-footer-social-link {
   width: 40px;
   height: 40px;
@@ -615,15 +619,15 @@ label {
 }
 
 [data-bs-theme="dark"] .app-footer-social-link {
-  color: var(--color-dark-rich-blue);
-  background-color: var(--color-mist);
-  border-color: var(--color-dark-rich-blue);
+  color: var(--color-mist);
+  background-color: transparent;
+  border-color: var(--color-mist);
 }
 
 [data-bs-theme="dark"] .app-footer-social-link:hover {
-  color: var(--color-dark-rich-blue);
-  background-color: var(--color-mist);
-  border-color: var(--color-dark-rich-blue);
+  color: var(--color-pearly-aqua);
+  background-color: transparent;
+  border-color: var(--color-pearly-aqua);
 }
 
 /* Footer Links - Improved Contrast (UPDATED to exclude buttons) */

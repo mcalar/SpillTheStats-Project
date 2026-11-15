@@ -46,7 +46,7 @@ export default function App() {
           <Link to="/" className="text-decoration-none">Champions</Link>
 
           <button
-            className="btn btn-sm btn-outline rounded-pill d-flex align-items-center gap-2"
+            className="btn btn-sm btn-secondary rounded-pill d-flex align-items-center gap-2"
             onClick={toggleAccessibility}
             aria-label="Opciones de accesibilidad"
           >
