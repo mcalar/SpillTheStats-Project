@@ -11,10 +11,12 @@ import logoMistDarkblue from './assets/logo-mist-darkblue.png';
 import logoDarkblueMist from './assets/logo-darkblue-mist.png';
 import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage"; // Import the LoginPage component
+import ChampionPage from "./pages/ChampionPage";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [accessibilityState, setAccessibilityState] = useState<PanelState>('minimized');
+  const [profileAnalysisComplete, setProfileAnalysisComplete] = useState(false);
   const { isBionicActive } = useBionicText();
 
   const toggleAccessibility = () => {
@@ -154,7 +156,16 @@ export default function App() {
             </div>
           } /> 
 
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route
+            path="/profile"
+            element={
+              <ProfilePage
+                analysisComplete={profileAnalysisComplete}
+                onAnalysisComplete={setProfileAnalysisComplete}
+              />
+            }
+          />
+          <Route path="/champion/:slug" element={<ChampionPage />} />
           <Route path="/login" element={<LoginPage />} /> {/* Login page route */}
           <Route path="/signup" element={<LoginPage mode="signup" />} />
         </Routes>
