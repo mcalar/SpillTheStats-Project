@@ -10,7 +10,12 @@ interface OptionButtonProps {
 }
 
 const OptionButton = ({ active, onClick, children }: OptionButtonProps) => (
-  <button className={`btn btn-sm ${active ? 'btn-primary' : 'btn-outline-secondary'}`} onClick={onClick} type="button">
+  <button
+    className={`btn btn-sm ${active ? 'btn-primary' : 'btn-outline-secondary'}`}
+    onClick={onClick}
+    type="button"
+    aria-pressed={active}
+  >
     {children}
   </button>
 );
@@ -75,7 +80,7 @@ export const AccessibilityPanel = ({ state: controlledState, onStateChange }: Ac
               </div>
             </div>
 
-            {/* DALTONISMO */}
+            {/* FILTROS DE COLOR */}
             <div>
               <label className="form-label fw-bold small mb-1">Daltonismo</label>
               <div className="d-flex flex-wrap gap-2">

@@ -602,7 +602,7 @@ label {
   width: 40px;
   height: 40px;
   color: var(--color-dark-rich-blue);
-  background-color: var(--color-mist);
+  background-color: transparent;
   border: var(--border-thin) solid var(--color-dark-rich-blue);
   transition: all var(--transition-fast);
   display: flex;
@@ -612,7 +612,7 @@ label {
 
 .app-footer-social-link:hover {
   color: var(--color-dark-rich-blue);
-  background-color: var(--color-mist);
+  background-color: transparent;
   border-color: var(--color-dark-rich-blue);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
@@ -630,7 +630,7 @@ label {
   border-color: var(--color-pearly-aqua);
 }
 
-/* Footer Links - Improved Contrast (UPDATED to exclude buttons) */
+/* Footer Links */
 .app-nav,
 .app-footer {
   color: var(--color-chrome-text);
@@ -682,4 +682,58 @@ footer a:not(.btn):hover {
 :focus-visible {
   outline: 2px solid var(--color-secondary);
   outline-offset: 2px;
+}
+
+/* Color-vision-friendly palettes use distinct hues instead of simulating a deficiency. */
+[data-colorblind="protanopia"],
+[data-colorblind="deuteranopia"] {
+  --color-indigo-velvet: #0072b2;
+  --color-pearly-aqua: #e69f00;
+  --color-lavender: #a9cde3;
+  --color-baltic-blue: #005a8d;
+  --color-success: #0072b2;
+  --color-error: #b2182b;
+  --color-warning: #8a5a00;
+  --color-info: #0072b2;
+}
+
+[data-colorblind="tritanopia"] {
+  --color-indigo-velvet: #b2182b;
+  --color-pearly-aqua: #00876c;
+  --color-lavender: #d9a6a6;
+  --color-baltic-blue: #006b50;
+  --color-success: #00876c;
+  --color-error: #b2182b;
+  --color-warning: #a6611a;
+  --color-info: #6a3d9a;
+}
+
+[data-colorblind="achromatopsia"] {
+  --color-lavender: #d0d0d0;
+  --color-mist: #eeeeee;
+  --color-pearly-aqua: #b8b8b8;
+  --color-dark-rich-blue: #1a1a1a;
+  --color-indigo-velvet: #555555;
+  --color-light-cyan: #f5f5f5;
+  --color-slightly-lighter-dark-blue: #333333;
+  --color-baltic-blue: #707070;
+  --color-success: #4a4a4a;
+  --color-error: #1a1a1a;
+  --color-warning: #777777;
+  --color-info: #a5a5a5;
+  --color-text-muted: #595959;
+  --color-border-strong: #555555;
+}
+
+[data-bs-theme="dark"][data-colorblind="achromatopsia"] {
+  --color-background: #1a1a1a;
+  --color-surface: #262626;
+  --color-chrome-background: #0d0d0d;
+  --color-chrome-text: #eeeeee;
+  --color-text: #eeeeee;
+  --color-text-muted: #c2c2c2;
+  --color-border: #707070;
+  --color-border-strong: #b8b8b8;
+  --bs-body-bg: var(--color-background);
+  --bs-body-color: var(--color-text);
 }
