@@ -1,82 +1,38 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BionicText } from "../components/BionicText";
 import { useBionicText } from "../hooks/useBionicText";
-import asheImage from "../assets/square-ashe.webp";
-import caitlynImage from "../assets/square-caitlyn.webp";
-import jhinImage from "../assets/square-jhin.webp";
 import manolitoProfileImage from "../assets/manolito-pfp.jpg";
-import samiraImage from "../assets/square-samira.webp";
-import yunaraImage from "../assets/square-yunara.webp";
+import { champions } from "../data/champions";
 
 const profileTags = ["Alto Daño", "Bajo Control", "Baja Visión"];
-const favoriteChampions = [
-  {
-    name: "Jhin",
-    image: jhinImage,
-    description: "Tirador de largo alcance que convierte cada disparo en una amenaza.",
-    tags: ["Bot", "Daño", "Control"],
-  },
-  {
-    name: "Ashe",
-    image: asheImage,
-    description: "Tiradora de utilidad que ralentiza enemigos y apoya a su equipo.",
-    tags: ["Bot", "Daño", "Utilidad"],
-  },
-  {
-    name: "Caitlyn",
-    image: caitlynImage,
-    description: "Tiradora de largo alcance que domina la línea con trampas.",
-    tags: ["Bot", "Daño", "Alcance"],
-  },
-  {
-    name: "Samira",
-    image: samiraImage,
-    description: "Tiradora agresiva que mezcla ataques a distancia y cuerpo a cuerpo.",
-    tags: ["Bot", "Daño", "Movilidad"],
-  },
-  {
-    name: "Yunara",
-    image: yunaraImage,
-    description: "Tiradora que combina ataques precisos con poder espiritual.",
-    tags: ["Bot", "Daño", "Movilidad"],
-  },
-];
 
-export default function ProfilePage() {
+interface ProfilePageProps {
+  analysisComplete: boolean;
+  onAnalysisComplete: (complete: boolean) => void;
+}
+
+export default function ProfilePage({
+  analysisComplete,
+  onAnalysisComplete,
+}: ProfilePageProps) {
   const { isBionicActive } = useBionicText();
+  const navigate = useNavigate();
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysisComplete, setAnalysisComplete] = useState(false);
   const [hoveredChampion, setHoveredChampion] = useState<string | null>(null);
   const [focusedChampion, setFocusedChampion] = useState<string | null>(null);
-  const [pinnedChampion, setPinnedChampion] = useState<string | null>(null);
-  const activeChampion = pinnedChampion ?? hoveredChampion ?? focusedChampion;
+  const activeChampion = hoveredChampion ?? focusedChampion;
 
   useEffect(() => {
     if (!isAnalyzing) return;
 
     const timeoutId = window.setTimeout(() => {
       setIsAnalyzing(false);
-      setAnalysisComplete(true);
+      onAnalysisComplete(true);
     }, 3000);
 
     return () => window.clearTimeout(timeoutId);
-  }, [isAnalyzing]);
-
-  useEffect(() => {
-    if (!pinnedChampion) return;
-
-    const closeOnOutsideClick = (event: PointerEvent) => {
-      if (!(event.target instanceof Element)) return;
-
-      const clickedChampion = event.target.closest<HTMLElement>("[data-champion]");
-      if (clickedChampion?.dataset.champion !== pinnedChampion) {
-        setPinnedChampion(null);
-      }
-    };
-
-    document.addEventListener("pointerdown", closeOnOutsideClick);
-    return () => document.removeEventListener("pointerdown", closeOnOutsideClick);
-  }, [pinnedChampion]);
+  }, [isAnalyzing, onAnalysisComplete]);
 
   if (isAnalyzing) {
     return (
@@ -140,11 +96,11 @@ export default function ProfilePage() {
               <BionicText isActive={isBionicActive} text="Campeones Afines" />
             </h2>
             <div className="profile-champion-grid">
-              {favoriteChampions.map((champion) => (
+              {champions.map((champion) => (
                 <div
                   className={`profile-champion${activeChampion === champion.name ? " profile-champion-open" : ""}`}
                   key={champion.name}
-                  data-champion={champion.name}
+                  data-champion={champion.slug}
                   onMouseEnter={() => setHoveredChampion(champion.name)}
                   onMouseLeave={() => setHoveredChampion(null)}
                 >
@@ -156,11 +112,7 @@ export default function ProfilePage() {
                     aria-controls={activeChampion === champion.name ? `champion-details-${champion.name}` : undefined}
                     onFocus={() => setFocusedChampion(champion.name)}
                     onBlur={() => setFocusedChampion(null)}
-                    onClick={() =>
-                      setPinnedChampion((current) =>
-                        current === champion.name ? null : champion.name,
-                      )
-                    }
+                    onClick={() => navigate(`/champion/${champion.slug}`)}
                   >
                     <img
                       className="profile-champion-image"
