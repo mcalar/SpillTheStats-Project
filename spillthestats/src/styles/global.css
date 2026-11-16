@@ -596,11 +596,30 @@ label {
 }
 
 .profile-champion {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
   text-align: center;
+}
+
+.profile-champion-open {
+  z-index: 1;
+}
+
+.profile-champion-trigger {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font: inherit;
+  cursor: pointer;
 }
 
 .profile-champion-image {
@@ -615,6 +634,57 @@ label {
   font-weight: 600;
 }
 
+.profile-champion-details {
+  position: absolute;
+  top: calc(100% + var(--space-3));
+  left: 50%;
+  z-index: 10;
+  width: min(240px, calc(100vw - var(--space-8)));
+  padding: var(--space-4);
+  transform: translateX(-50%);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.profile-champion-details-name {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-base);
+}
+
+.profile-champion-description {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.profile-champion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.profile-champion-tag {
+  padding: var(--space-1) var(--space-2);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.profile-champion:nth-child(5n + 1) .profile-champion-details {
+  left: 0;
+  transform: none;
+}
+
+.profile-champion:nth-child(5n) .profile-champion-details {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
 @media (max-width: 767.98px) {
   .profile-tags {
     flex-basis: 100%;
@@ -622,6 +692,24 @@ label {
 
   .profile-champion-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .profile-champion-details {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-champion:nth-child(3n + 1) .profile-champion-details {
+    right: auto;
+    left: 0;
+    transform: none;
+  }
+
+  .profile-champion:nth-child(3n) .profile-champion-details {
+    right: 0;
+    left: auto;
+    transform: none;
   }
 }
 
@@ -637,6 +725,24 @@ label {
 
   .profile-champion-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profile-champion-details {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-champion:nth-child(2n + 1) .profile-champion-details {
+    right: auto;
+    left: 0;
+    transform: none;
+  }
+
+  .profile-champion:nth-child(2n) .profile-champion-details {
+    right: 0;
+    left: auto;
+    transform: none;
   }
 
   .profile-champion-image {

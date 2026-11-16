@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { AccessibilityPanel, type PanelState } from "./components/AccessibilityPanel";
 import { BionicText } from "./components/BionicText";
@@ -55,12 +55,8 @@ export default function App() {
           </Link>
         </div>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop Actions */}
         <div className="d-none d-lg-flex align-items-center gap-4 small">
-          <Link to="/" className="text-decoration-none">Home</Link>
-          <Link to="/" className="text-decoration-none">Análisis</Link>
-          <Link to="/" className="text-decoration-none">Champions</Link>
-
           <button
             className="btn btn-sm btn-secondary rounded-pill d-flex align-items-center gap-2"
             onClick={toggleAccessibility}
@@ -95,10 +91,6 @@ export default function App() {
       {menuOpen && (
         <div className="app-nav d-lg-none">
           <div className="d-flex flex-column px-4 py-3 gap-3 small">
-            <Link to="/" className="text-decoration-none">Home</Link>
-            <Link to="/" className="text-decoration-none">Análisis</Link>
-            <Link to="/" className="text-decoration-none">Champions</Link>
-
             <button
               className="btn btn-outline btn-sm rounded-pill d-flex align-items-center gap-2"
               onClick={() => {
