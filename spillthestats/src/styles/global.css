@@ -651,6 +651,11 @@ footer a:not(.btn):hover {
   color: var(--color-chrome-hover);
 }
 
+/* Login Page Card - Dark Mode Background */
+[data-bs-theme="dark"] .login-card {
+  background-color: var(--color-baltic-blue);
+}
+
 /* ============================================
    11. RESPONSIVE ADJUSTMENTS
    ============================================ */
