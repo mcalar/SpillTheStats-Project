@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { AccessibilityPanel, type PanelState } from "./components/AccessibilityPanel";
 import { BionicText } from "./components/BionicText";
+import { UiIcon } from "./components/UiIcon";
 import { useBionicText } from "./hooks/useBionicText";
 import './styles/marquee.css';
+import heroPoros from './assets/poros-playing.webp';
+import heroTristana from './assets/poster-dragontrainer-tristana.jpg';
+import logoMistDarkblue from './assets/logo-mist-darkblue.png';
+import logoDarkblueMist from './assets/logo-darkblue-mist.png';
 import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage"; // Import the LoginPage component
 
@@ -35,7 +40,17 @@ export default function App() {
       {/* Navigation Bar */}
       <nav className="app-nav w-100 px-4 px-sm-5 py-3 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center gap-3">
-          <Link to="/" className="text-display fw-bold text-decoration-none">
+          <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none text-display fw-bold">
+            <img
+              src={logoMistDarkblue}
+              alt="SpillTheStats logo"
+              className="app-logo-mark app-logo-light"
+            />
+            <img
+              src={logoDarkblueMist}
+              alt="SpillTheStats logo"
+              className="app-logo-mark app-logo-dark"
+            />
             SpillTheStats
           </Link>
         </div>
@@ -51,7 +66,7 @@ export default function App() {
             onClick={toggleAccessibility}
             aria-label="Opciones de accesibilidad"
           >
-            <span>♿</span>
+            <UiIcon name="accessibility" size={18} />
             <span>Accesibilidad</span>
           </button>
 
@@ -59,7 +74,7 @@ export default function App() {
             to="/profile"
             className="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-2 text-decoration-none"
           >
-            <span aria-hidden="true">👤</span>
+            <UiIcon name="user" size={18} />
             <span>Perfil</span>
           </Link>
         </div>
@@ -91,11 +106,11 @@ export default function App() {
                 setMenuOpen(false);
               }}
             >
-              <span>♿</span> Accesibilidad
+              <UiIcon name="accessibility" size={18} /> Accesibilidad
             </button>
 
             <Link to="/profile" className="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-2 text-decoration-none">
-              <span aria-hidden="true">👤</span>
+              <UiIcon name="user" size={18} />
               Perfil
             </Link>
           </div>
@@ -109,13 +124,18 @@ export default function App() {
             <div className="container-fluid p-0 d-flex flex-column flex-md-row w-100">
               {/* Hero artwork */}
               <div className="col-12 col-md-6 d-flex align-items-center justify-content-center bg-surface app-hero-artwork">
-                <div className="app-hero-chart" aria-hidden="true">
-                  <span className="app-hero-bar app-hero-bar--1"></span>
-                  <span className="app-hero-bar app-hero-bar--2"></span>
-                  <span className="app-hero-bar app-hero-bar--3"></span>
-                  <span className="app-hero-bar app-hero-bar--4"></span>
-                  <span className="app-hero-bar app-hero-bar--5"></span>
-                </div>
+                <img
+                  src={heroTristana}
+                  alt="Tristana Entrenadora de Dragones"
+                  className="app-hero-image app-hero-image-light"
+                  loading="lazy"
+                />
+                <img
+                  src={heroPoros}
+                  alt="Poros jugando"
+                  className="app-hero-image app-hero-image-dark"
+                  loading="lazy"
+                />
               </div>
 
               {/* Right half - Title + Description + Button */}
@@ -134,7 +154,7 @@ export default function App() {
                 {/* Login Button */}
                 <div className="mt-4">
                   <Link to="/login" className="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-2 text-decoration-none">
-                    <span aria-hidden="true">👤</span>
+                    <UiIcon name="user" size={18} />
                     Iniciar sesión
                   </Link>
                 </div>
@@ -144,6 +164,7 @@ export default function App() {
 
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/login" element={<LoginPage />} /> {/* Login page route */}
+          <Route path="/signup" element={<LoginPage mode="signup" />} />
         </Routes>
       </main>
 
@@ -153,7 +174,9 @@ export default function App() {
           <div className="row">
             <div className="col-12 col-md-6 d-flex flex-column justify-content-between pb-3 pb-md-0 mb-3 mb-md-0 pe-md-4">
               <div className="small">
-                <p className="mb-0">Made with ❤ by CocoaTeaDevs</p>
+                <p className="mb-0 d-flex align-items-center gap-1">
+                  Made with <UiIcon name="heart" size={14} /> by CocoaTeaDevs
+                </p>
               </div>
               <div className="d-flex align-items-center gap-4 mt-3">
                 <span className="text-display fw-bold">SpillTheStats</span>

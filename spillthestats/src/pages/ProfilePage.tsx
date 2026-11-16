@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BionicText } from "../components/BionicText";
+import { UiIcon } from "../components/UiIcon";
 import { useBionicText } from "../hooks/useBionicText";
 
 export default function ProfilePage() {
@@ -13,7 +14,7 @@ export default function ProfilePage() {
       <section className="card mb-4">
         <div className="d-flex align-items-center gap-4 flex-wrap">
           <div className="profile-avatar flex-shrink-0" role="img" aria-label="Profile avatar">
-            <span aria-hidden="true">👤</span>
+            <UiIcon name="user" size={36} />
           </div>
 
           <div className="flex-grow-1">
