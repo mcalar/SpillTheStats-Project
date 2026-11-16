@@ -4,6 +4,10 @@ import { AccessibilityPanel, type PanelState } from "./components/AccessibilityP
 import { BionicText } from "./components/BionicText";
 import { useBionicText } from "./hooks/useBionicText";
 import './styles/marquee.css';
+import heroPoros from './assets/poros-playing.webp';
+import heroTristana from './assets/poster-dragontrainer-tristana.jpg';
+import logoMistDarkblue from './assets/logo-mist-darkblue.png';
+import logoDarkblueMist from './assets/logo-darkblue-mist.png';
 import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage"; // Import the LoginPage component
 
@@ -35,7 +39,17 @@ export default function App() {
       {/* Navigation Bar */}
       <nav className="app-nav w-100 px-4 px-sm-5 py-3 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center gap-3">
-          <Link to="/" className="text-display fw-bold text-decoration-none">
+          <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none text-display fw-bold">
+            <img
+              src={logoMistDarkblue}
+              alt="SpillTheStats logo"
+              className="app-logo-mark app-logo-light"
+            />
+            <img
+              src={logoDarkblueMist}
+              alt="SpillTheStats logo"
+              className="app-logo-mark app-logo-dark"
+            />
             SpillTheStats
           </Link>
         </div>
@@ -109,13 +123,18 @@ export default function App() {
             <div className="container-fluid p-0 d-flex flex-column flex-md-row w-100">
               {/* Hero artwork */}
               <div className="col-12 col-md-6 d-flex align-items-center justify-content-center bg-surface app-hero-artwork">
-                <div className="app-hero-chart" aria-hidden="true">
-                  <span className="app-hero-bar app-hero-bar--1"></span>
-                  <span className="app-hero-bar app-hero-bar--2"></span>
-                  <span className="app-hero-bar app-hero-bar--3"></span>
-                  <span className="app-hero-bar app-hero-bar--4"></span>
-                  <span className="app-hero-bar app-hero-bar--5"></span>
-                </div>
+                <img
+                  src={heroTristana}
+                  alt="Tristana Entrenadora de Dragones"
+                  className="app-hero-image app-hero-image-light"
+                  loading="lazy"
+                />
+                <img
+                  src={heroPoros}
+                  alt="Poros jugando"
+                  className="app-hero-image app-hero-image-dark"
+                  loading="lazy"
+                />
               </div>
 
               {/* Right half - Title + Description + Button */}

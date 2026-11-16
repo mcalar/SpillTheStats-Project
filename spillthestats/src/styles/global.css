@@ -690,27 +690,203 @@ footer a:not(.btn):hover {
 }
 
 /* Color-vision-friendly palettes use distinct hues instead of simulating a deficiency. */
-[data-colorblind="protanopia"],
-[data-colorblind="deuteranopia"] {
+[data-colorblind="protanopia"] {
   --color-indigo-velvet: #0072b2;
   --color-pearly-aqua: #e69f00;
   --color-lavender: #a9cde3;
+  --color-mist: #f1f8fb;
+  --color-dark-rich-blue: #102f45;
+  --color-light-cyan: #edf5f9;
+  --color-slightly-lighter-dark-blue: #163d56;
   --color-baltic-blue: #005a8d;
+  --color-background: #edf5f9;
+  --color-surface: #ffffff;
+  --color-chrome-background: #e4f0f5;
+  --color-chrome-text: #102f45;
+  --color-chrome-hover: #0072b2;
+  --color-text: #102f45;
+  --color-text-muted: #506777;
+  --color-border: #b7cfdd;
+  --color-border-strong: #005a8d;
+  --color-primary: #102f45;
+  --color-secondary: #0072b2;
+  --color-accent: #e69f00;
   --color-success: #0072b2;
   --color-error: #b2182b;
   --color-warning: #8a5a00;
   --color-info: #0072b2;
 }
 
+[data-bs-theme="dark"][data-colorblind="protanopia"] {
+  --color-background: #102a3a;
+  --color-surface: #17394d;
+  --color-chrome-background: #0c202e;
+  --color-chrome-text: #f1f8fb;
+  --color-text: #f1f8fb;
+  --color-text-muted: #bfd2dc;
+  --color-border: #36596b;
+  --color-border-strong: #a9cde3;
+  --bs-body-bg: var(--color-background);
+  --bs-body-color: var(--color-text);
+}
+
+[data-colorblind="deuteranopia"] {
+  --color-indigo-velvet: #6f4a91;
+  --color-pearly-aqua: #d97706;
+  --color-lavender: #d8c6e8;
+  --color-mist: #faf6ff;
+  --color-dark-rich-blue: #30253f;
+  --color-light-cyan: #f3eff8;
+  --color-slightly-lighter-dark-blue: #423451;
+  --color-baltic-blue: #563c73;
+  --color-background: #f3eff8;
+  --color-surface: #ffffff;
+  --color-chrome-background: #e9e1f1;
+  --color-chrome-text: #30253f;
+  --color-chrome-hover: #6f4a91;
+  --color-text: #30253f;
+  --color-text-muted: #61586c;
+  --color-border: #cbbdda;
+  --color-border-strong: #563c73;
+  --color-primary: #30253f;
+  --color-secondary: #6f4a91;
+  --color-accent: #d97706;
+  --color-success: #27667e;
+  --color-error: #a23b72;
+  --color-warning: #965600;
+  --color-info: #385c9a;
+}
+
+[data-bs-theme="dark"][data-colorblind="deuteranopia"] {
+  --color-background: #201c31;
+  --color-surface: #2c2540;
+  --color-chrome-background: #171324;
+  --color-chrome-text: #faf6ff;
+  --color-text: #faf6ff;
+  --color-text-muted: #d0c7e0;
+  --color-border: #554769;
+  --color-border-strong: #d8c6e8;
+  --bs-body-bg: var(--color-background);
+  --bs-body-color: var(--color-text);
+}
+
 [data-colorblind="tritanopia"] {
-  --color-indigo-velvet: #b2182b;
-  --color-pearly-aqua: #00876c;
-  --color-lavender: #d9a6a6;
-  --color-baltic-blue: #006b50;
-  --color-success: #00876c;
-  --color-error: #b2182b;
-  --color-warning: #a6611a;
-  --color-info: #6a3d9a;
+  --color-indigo-velvet: #a6335c;
+  --color-pearly-aqua: #59c7d8;
+  --color-lavender: #e5a5bf;
+  --color-mist: #f5fcff;
+  --color-dark-rich-blue: #17324d;
+  --color-light-cyan: #eaf6fa;
+  --color-slightly-lighter-dark-blue: #254a66;
+  --color-baltic-blue: #176c91;
+  --color-background: #eaf6fa;
+  --color-surface: #ffffff;
+  --color-chrome-background: #daeff5;
+  --color-chrome-text: #17324d;
+  --color-chrome-hover: #a6335c;
+  --color-text: #17324d;
+  --color-text-muted: #4c6478;
+  --color-border: #b8d7e2;
+  --color-border-strong: #176c91;
+  --color-primary: #17324d;
+  --color-secondary: #a6335c;
+  --color-accent: #59c7d8;
+  --color-success: #176c64;
+  --color-error: #b4234a;
+  --color-warning: #9c541d;
+  --color-info: #176c91;
+}
+
+[data-bs-theme="dark"][data-colorblind="tritanopia"] {
+  --color-mist: #f2fbff;
+  --color-background: #122632;
+  --color-surface: #1a3545;
+  --color-chrome-background: #10232e;
+  --color-chrome-text: #f2fbff;
+  --color-text: #f2fbff;
+  --color-text-muted: #c1e0e9;
+  --color-border: #355969;
+  --color-border-strong: #59c7d8;
+  --color-success: #65c9a8;
+  --color-error: #ff8bad;
+  --color-warning: #ffc078;
+  --color-info: #79d7e5;
+  --bs-body-bg: var(--color-background);
+  --bs-body-color: var(--color-text);
+}
+
+[data-colorblind="tritanopia"] .btn-primary {
+  background-color: #a6335c;
+  color: #f5fcff;
+  border-color: #a6335c;
+}
+
+[data-colorblind="tritanopia"] .btn-primary:hover {
+  background-color: #e5a5bf;
+  color: #17324d;
+  border-color: #e5a5bf;
+}
+
+[data-colorblind="tritanopia"] .btn-secondary {
+  background-color: #176c91;
+  color: #f5fcff;
+  border-color: #176c91;
+}
+
+[data-colorblind="tritanopia"] .btn-secondary:hover {
+  background-color: #59c7d8;
+  color: #17324d;
+  border-color: #59c7d8;
+}
+
+[data-colorblind="tritanopia"] .btn-outline,
+[data-colorblind="tritanopia"] .btn-outline-secondary {
+  color: #176c91;
+  border-color: #176c91;
+}
+
+[data-colorblind="tritanopia"] .btn-outline:hover,
+[data-colorblind="tritanopia"] .btn-outline-secondary:hover {
+  background-color: #176c91;
+  color: #f5fcff;
+  border-color: #176c91;
+}
+
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-primary {
+  background-color: #d96a99;
+  color: #17324d;
+  border-color: #d96a99;
+}
+
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-primary:hover {
+  background-color: #f2bfd3;
+  color: #17324d;
+  border-color: #f2bfd3;
+}
+
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-secondary {
+  background-color: #59c7d8;
+  color: #17324d;
+  border-color: #59c7d8;
+}
+
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-secondary:hover,
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-outline:hover,
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-outline-secondary:hover {
+  background-color: #d8f6fb;
+  color: #17324d;
+  border-color: #d8f6fb;
+}
+
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-outline,
+[data-bs-theme="dark"][data-colorblind="tritanopia"] .btn-outline-secondary {
+  color: #d8f6fb;
+  border-color: #d8f6fb;
+}
+
+[data-colorblind="tritanopia"] .accessibility-panel-card .btn-outline-secondary,
+[data-colorblind="tritanopia"] .accessibility-panel-card .btn-outline-secondary:hover {
+  border-color: transparent;
 }
 
 [data-colorblind="achromatopsia"] {
