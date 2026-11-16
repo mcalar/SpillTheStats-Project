@@ -544,13 +544,9 @@ label {
 .profile-avatar {
   width: 96px;
   height: 96px;
-  border: var(--border-medium) dashed var(--color-border-strong);
+  border: var(--border-medium) solid var(--color-border-strong);
   border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  color: var(--color-text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
 }
 
 .profile-summary-layout {
@@ -607,16 +603,12 @@ label {
   text-align: center;
 }
 
-.profile-champion-placeholder {
+.profile-champion-image {
   width: 112px;
   aspect-ratio: 1;
-  border: var(--border-medium) dashed var(--color-border-strong);
+  border: var(--border-medium) solid var(--color-border-strong);
   border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  color: var(--color-text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
 }
 
 .profile-champion-name {
@@ -647,7 +639,7 @@ label {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .profile-champion-placeholder {
+  .profile-champion-image {
     width: 96px;
   }
 }

@@ -1,9 +1,20 @@
 import { BionicText } from "../components/BionicText";
-import { UiIcon } from "../components/UiIcon";
 import { useBionicText } from "../hooks/useBionicText";
+import asheImage from "../assets/square-ashe.webp";
+import caitlynImage from "../assets/square-caitlyn.webp";
+import jhinImage from "../assets/square-jhin.webp";
+import manolitoProfileImage from "../assets/manolito-pfp.jpg";
+import samiraImage from "../assets/square-samira.webp";
+import yunaraImage from "../assets/square-yunara.webp";
 
 const profileTags = ["Alto Daño", "Bajo Control", "Baja Visión"];
-const favoriteChampions = ["Ahri", "Jinx", "Lux", "Yasuo", "Thresh"];
+const favoriteChampions = [
+  { name: "Jhin", image: jhinImage },
+  { name: "Ashe", image: asheImage },
+  { name: "Caitlyn", image: caitlynImage },
+  { name: "Samira", image: samiraImage },
+  { name: "Yunara", image: yunaraImage },
+];
 
 export default function ProfilePage() {
   const { isBionicActive } = useBionicText();
@@ -12,13 +23,11 @@ export default function ProfilePage() {
     <div className="container py-5 profile-main">
       <section className="card mb-4 profile-summary" aria-label="Profile">
         <div className="profile-summary-layout">
-          <div
+          <img
+            src={manolitoProfileImage}
             className="profile-avatar flex-shrink-0"
-            role="img"
-            aria-label="Profile picture placeholder"
-          >
-            <UiIcon name="user" size={36} />
-          </div>
+            alt="Profile picture of ManolitoGamer"
+          />
 
           <div className="profile-info">
             <h1 className="profile-name mb-1">
@@ -43,15 +52,13 @@ export default function ProfilePage() {
         <h2 className="text-xl mb-4">Campeones Afines</h2>
         <div className="profile-champion-grid">
           {favoriteChampions.map((champion) => (
-            <div className="profile-champion" key={champion}>
-              <div
-                className="profile-champion-placeholder"
-                role="img"
-                aria-label={`Placeholder portrait for ${champion}`}
-              >
-                <UiIcon name="user" size={32} />
-              </div>
-              <span className="profile-champion-name">{champion}</span>
+            <div className="profile-champion" key={champion.name}>
+              <img
+                className="profile-champion-image"
+                src={champion.image}
+                alt={`${champion.name} champion portrait`}
+              />
+              <span className="profile-champion-name">{champion.name}</span>
             </div>
           ))}
         </div>
