@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { UiIcon } from './UiIcon';
 import { useAccessibilitySettings } from '../hooks/useAccessibilitySettings';
 
 export type PanelState = 'closed' | 'minimized' | 'open';
@@ -43,7 +44,7 @@ export const AccessibilityPanel = ({ state: controlledState, onStateChange }: Ac
         onClick={() => setState('open')}
         aria-label="Abrir panel"
       >
-        ♿
+        <UiIcon name="accessibility" size={28} />
       </button>
       )}
 
@@ -96,8 +97,12 @@ export const AccessibilityPanel = ({ state: controlledState, onStateChange }: Ac
             <div>
               <label className="form-label fw-bold small mb-1">Tema</label>
               <div className="d-flex gap-2">
-                <OptionButton active={settings.theme === 'light'} onClick={() => updateSetting('theme', 'light')}>☀️ Claro</OptionButton>
-                <OptionButton active={settings.theme === 'dark'} onClick={() => updateSetting('theme', 'dark')}>🌙 Oscuro</OptionButton>
+                <OptionButton active={settings.theme === 'light'} onClick={() => updateSetting('theme', 'light')}>
+                  <span className="d-inline-flex align-items-center gap-1"><UiIcon name="sun" size={16} />Claro</span>
+                </OptionButton>
+                <OptionButton active={settings.theme === 'dark'} onClick={() => updateSetting('theme', 'dark')}>
+                  <span className="d-inline-flex align-items-center gap-1"><UiIcon name="moon" size={16} />Oscuro</span>
+                </OptionButton>
               </div>
             </div>
 

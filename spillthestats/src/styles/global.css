@@ -654,6 +654,22 @@ footer a:not(.btn):hover {
 /* Login Page Card - Dark Mode Background */
 [data-bs-theme="dark"] .login-card {
   background-color: var(--color-baltic-blue);
+  border: 0;
+  color: var(--color-mist);
+}
+
+[data-bs-theme="dark"] .login-card h2,
+[data-bs-theme="dark"] .login-card p,
+[data-bs-theme="dark"] .login-card a {
+  color: var(--color-mist);
+}
+
+[data-bs-theme="dark"] .login-card .text-muted {
+  color: var(--color-mist) !important;
+}
+
+[data-bs-theme="dark"] .login-card .login-signup-link {
+  color: var(--color-pearly-aqua) !important;
 }
 
 /* ============================================
