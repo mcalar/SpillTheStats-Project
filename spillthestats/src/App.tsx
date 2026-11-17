@@ -12,6 +12,7 @@ import logoDarkblueMist from './assets/logo-darkblue-mist.png';
 import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage"; // Import the LoginPage component
 import ChampionPage from "./pages/ChampionPage";
+import InfoPage from "./pages/InfoPage";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -166,6 +167,9 @@ export default function App() {
             }
           />
           <Route path="/champion/:slug" element={<ChampionPage />} />
+          <Route path="/faq" element={<InfoPage title="FAQ" />} />
+          <Route path="/about" element={<InfoPage title="Quiénes Somos" />} />
+          <Route path="/privacy" element={<InfoPage title="Política de Privacidad" />} />
           <Route path="/login" element={<LoginPage />} /> {/* Login page route */}
           <Route path="/signup" element={<LoginPage mode="signup" />} />
         </Routes>
@@ -184,10 +188,10 @@ export default function App() {
               <div className="d-flex align-items-center gap-4 mt-3">
                 <span className="text-display fw-bold">SpillTheStats</span>
                 <div className="d-flex align-items-center gap-3">
-                  <a href="#" className="d-flex align-items-center justify-content-center rounded-circle app-footer-social-link" title="GitHub">
+                  <a href="https://github.com/mcalar/SpillTheStats-Project" target="_blank" rel="noopener noreferrer" className="d-flex align-items-center justify-content-center rounded-circle app-footer-social-link" title="GitHub" aria-label="SpillTheStats en GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                   </a>
-                  <a href="#" className="d-flex align-items-center justify-content-center rounded-circle app-footer-social-link" title="Inbox">
+                  <a href="mailto:mcalar@unal.edu.co,julramirezdi@unal.edu.co" className="d-flex align-items-center justify-content-center rounded-circle app-footer-social-link" title="Enviar correo" aria-label="Enviar correo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="00 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
                   </a>
                 </div>
@@ -197,12 +201,12 @@ export default function App() {
             <div className="col-12 col-md-6 d-flex justify-content-md-end gap-5 pt-2 pt-md-0 ps-md-4">
               <div className="d-flex flex-column gap-2">
                 <h4 className="small fw-bold mb-1">Ayuda</h4>
-                <a href="#" className="small text-decoration-none hover-underline">FAQ</a>
-                <a href="#" className="small text-decoration-none hover-underline">Contact Us</a>
+                <Link to="/faq" className="small text-decoration-none hover-underline">FAQ</Link>
               </div>
               <div className="d-flex flex-column gap-2">
                 <h4 className="small fw-bold mb-1">Otros</h4>
-                <a href="#" className="small text-decoration-none hover-underline">Política de Privacidad</a>
+                <Link to="/about" className="small text-decoration-none hover-underline">Quiénes Somos</Link>
+                <Link to="/privacy" className="small text-decoration-none hover-underline">Política de Privacidad</Link>
               </div>
             </div>
           </div>

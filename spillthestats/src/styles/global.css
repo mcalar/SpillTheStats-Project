@@ -330,6 +330,11 @@ a:hover {
   transition: box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
+[data-bs-theme="dark"][data-colorblind="none"] .card {
+  background-color: var(--color-dark-rich-blue);
+  border-color: transparent;
+}
+
 .card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
@@ -573,11 +578,6 @@ label {
   to {
     transform: rotate(360deg);
   }
-}
-
-[data-bs-theme="dark"][data-colorblind="none"] .profile-main .card {
-  background-color: var(--color-dark-rich-blue);
-  border-color: transparent;
 }
 
 .profile-muted {
