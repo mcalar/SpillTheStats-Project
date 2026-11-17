@@ -717,6 +717,11 @@ label {
   white-space: nowrap;
 }
 
+[data-bs-theme="dark"][data-colorblind="none"] .profile-champion-details,
+[data-bs-theme="dark"][data-colorblind="none"] .profile-champion-tag {
+  border-color: var(--color-mist);
+}
+
 .profile-champion:nth-child(5n + 1) .profile-champion-details {
   left: 0;
   transform: none;
